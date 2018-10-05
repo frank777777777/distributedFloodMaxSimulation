@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class masterNode {
+public class MasterNode {
     Integer diam;
-    List<slaveNode> subscribers;
+    List<SlaveNode> subscribers;
     Integer subCount;
 
 
@@ -11,8 +11,8 @@ public class masterNode {
      * constructor
      *
      * */
-    public masterNode(){
-        subscribers = new ArrayList<slaveNode>();
+    public MasterNode(){
+        subscribers = new ArrayList<SlaveNode>();
         diam = 0;
         subCount = 0;
     }
@@ -20,7 +20,7 @@ public class masterNode {
     /** subcribe the slave nodes to the master
     *
     * */
-    public void subscribe(slaveNode s){
+    public void subscribe(SlaveNode s){
         subscribers.add(s);
     }
 
@@ -28,7 +28,7 @@ public class masterNode {
      *
      * */
     public void notify2Master(){
-        if(++subCount == subscribers.size(){
+        if(++subCount == subscribers.size()){
             doNextRound();
             subCount = 0;
         }
@@ -38,7 +38,7 @@ public class masterNode {
     *
     * */
     public void doNextRound(){
-        for(slaveNode s : subscribers){
+        for(SlaveNode s : subscribers){
             s.execute();
         }
     }
